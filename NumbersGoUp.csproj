@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TheLongDarkPath>C:\Program Files (x86)\Steam\steamapps\common\TheLongDark</TheLongDarkPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MelonLoaderPath>$(TheLongDarkPath)/MelonLoader/net6</MelonLoaderPath>
+    <ManagedPath>$(TheLongDarkPath)/MelonLoader/Managed</ManagedPath>
+    <Il2CppPath>$(TheLongDarkPath)/MelonLoader/Il2CppAssemblies</Il2CppPath>
+    <ModsPath>$(TheLongDarkPath)/Mods</ModsPath>
+    <AssemblySearchPaths>$(AssemblySearchPaths);$(MelonLoaderPath);$(ManagedPath);$(Il2CppPath);$(ModsPath);</AssemblySearchPaths>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <Reference>
+      <Private>False</Private>
+    </Reference>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**;obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AurOS">
+      <HintPath>../AurOS/bin/out/AurOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonsieurMeh.Modding.TLD.Il2CppAssemblies.Windows" Version="2.58.0" />
+  </ItemGroup>
+</Project>
